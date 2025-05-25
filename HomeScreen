@@ -1,0 +1,245 @@
+import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native';
+import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
+
+const Home = () => {
+  const dummyImages = [
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+    require('../assets/images/ProfileImage.jpg'),
+  ];
+
+  return (
+    <View style={styles.container}>
+
+      <View style={styles.HeaderContainer}>
+        <Image
+          source={require('../assets/images/ProfileImage.jpg')}
+          style={styles.ProfileImage}
+        />
+
+        <TouchableOpacity style={styles.MyActivityButton}>
+          <Text style={styles.MyActivityText}>My Activity</Text>
+        </TouchableOpacity>
+
+        <View style={styles.IconContainer}>
+          <TouchableOpacity style={styles.IconButton}>
+            <Ionicons name="notifications-outline" size={20} color={'#004CFF'} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.IconButton}>
+            <Ionicons name="menu-outline" size={20} color={'#004CFF'} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.IconButton}>
+            <Ionicons name="settings-outline" size={20} color={'#004CFF'} />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <Text style={styles.HelloText}>Hello, Romina!</Text>
+
+      <View style={styles.AnnouncementCard}>
+        <Text style={styles.AnnouncementTitle}>Announcement</Text>
+        <View style={styles.AnnouncementCard2}>
+          <Text style={styles.AnnouncementText}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, ea numquam.
+          </Text>
+          <TouchableOpacity>
+            <Ionicons name="arrow-forward-circle" size={37} color={'#004CFF'} />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <Text style={styles.RecentlyViewed}>Recently viewed</Text>
+      <View style={styles.RecentlyViewedStories}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.RecentlyViewedStoriesInside}>
+            {dummyImages.map((img, index) => (
+              <Image
+                key={index}
+                source={img}
+                style={styles.RecentlyViewedStoryImage}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </View>
+
+      <Text style={styles.MyOrdersText}>My Orders</Text>
+      <View style={styles.ToView}>
+        <TouchableOpacity style={styles.ToPayCard}>
+          <Text style={styles.ToText}>To Pay</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.ToRecieveCard}>
+          <Text style={styles.ToText}>To Recieve</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.ToReviewCard}>
+          <Text style={styles.ToText}>To Review</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Text style={styles.StoriesText}>Stories</Text>
+      <View style={styles.BigStoryImageView1}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.BigStoryImageView2}>
+            {dummyImages.map((img, index) => (
+              <Image
+                key={index}
+                source={img}
+                style={styles.BigStoryImage}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </View>
+    </View>
+  );
+};
+
+export default Home;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 21,
+    paddingVertical: 30,
+  },
+  HeaderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: 20,
+    alignSelf: 'center',
+    width: '100%',
+  },
+  ProfileImage: {
+    borderRadius: 20,
+    width: 39,
+    height: 39,
+  },
+  MyActivityButton: {
+    backgroundColor: '#004CFF',
+    width: 100,
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
+    marginRight: 20,
+    marginTop: 2,
+  },
+  MyActivityText: {
+    fontSize: 14,
+    color: '#FFFFFF',
+  },
+  IconContainer: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  IconButton: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 100,
+    alignSelf: 'center',
+    padding: 8,
+  },
+  HelloText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginTop: 15,
+  },
+  AnnouncementCard: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginTop: 15,
+  },
+  AnnouncementTitle: {
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  AnnouncementCard2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 5,
+  },
+  AnnouncementText: {
+    fontSize: 10,
+    paddingRight: 12,
+  },
+  RecentlyViewed: {
+    fontSize: 21,
+    fontWeight: 'bold',
+    marginTop: 15,
+  },
+  RecentlyViewedStories: {
+    marginTop: 15,
+  },
+  RecentlyViewedStoriesInside: {
+    gap: 15,
+    flexDirection: 'row',
+  },
+  RecentlyViewedStoryImage: {
+    borderRadius: 40,
+    width: 50,
+    height: 50,
+  },
+  MyOrdersText: {
+    fontSize: 21,
+    fontWeight: 'bold',
+    marginTop: 15,
+  },
+  ToPayCard: {
+    backgroundColor: '#E5EBFC',
+    height: 36,
+    width: 95,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  ToRecieveCard: {
+    backgroundColor: '#E5EBFC',
+    height: 36,
+    width: 95,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  ToReviewCard: {
+    backgroundColor: '#E5EBFC',
+    height: 36,
+    width: 95,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  ToText: {
+    fontSize: 16,
+    color: '#0042E0',
+  },
+  ToView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 12,
+  },
+  StoriesText: {
+    fontSize: 21,
+    fontWeight: 'bold',
+    marginTop: 15,
+  },
+  BigStoryImage: {
+    height: 200,
+    width: 104,
+  },
+  BigStoryImageView1: {
+    marginTop: 11,
+  },
+  BigStoryImageView2: {
+    flexDirection: 'row',
+    gap: 7,
+  },
+});
